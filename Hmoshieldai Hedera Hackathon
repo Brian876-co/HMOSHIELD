@@ -1,0 +1,44 @@
+# Create folder and files
+mkdir HMOSHIELD-Hedera-Hackathon && cd HMOSHIELD-Hedera-Hackathon
+
+# Create all files (copy-paste one by one from above)
+# Or use this script (paste all at once):
+
+cat > .env.example << 'EOF'
+OPERATOR_ID=0.0.123456
+OPERATOR_KEY=302e0201...yourED25519privateKey...
+NETWORK=testnet
+EOF
+
+cat > package.json << 'EOF'
+{
+  "name": "hmoshield-hedera-hackathon",
+  "version": "1.0.0",
+  "description": "HMOSHIELD prototype for DoraHacks African Hackathon – DLT Operations track",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "HMOSHIELD Team",
+  "license": "MIT",
+  "dependencies": {
+    "@hashgraph/sdk": "^2.30.0",
+    "dotenv": "^16.4.5"
+  }
+}
+EOF
+
+cat > README.md << 'EOF'
+# HMOSHIELD – Hedera Hackathon Prototype
+
+**Goal:** Demonstrate ShieldCoin (SHC) creation, claims validation via smart contract, and fraud alerts via HCS on Hedera Testnet.
+
+## Quick Start
+
+```bash
+git clone <your-repo-url>
+cd HMOSHIELD-Hedera-Hackathon
+npm install
+cp .env.example .env
+# Edit .env with your Hedera Testnet operator ID & private key
+npm start
